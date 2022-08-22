@@ -29,8 +29,7 @@ scheme.load_shared_scheme('toodark')
 
 -- Individual plugin configs
 require('config.autopairs')
-require('config.lsp')
-require('config.lspkind')
+--require('config.lspkind')
 cmd('source ~/.config/nvim/lua/config/vimwiki.vim') -- gave up on writing this config in lua, cry about it
 require('config.nvim-compe')
 require('config.nvim-comment')

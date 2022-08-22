@@ -1,10 +1,9 @@
 local g = vim.g
 local fn = vim.fn
+local db = require('dashboard')
 
-g.dashboard_disable_at_vimenter = 1 -- dashboard is disabled by default
-g.dashboard_disable_statusline = 1
-g.dashboard_default_executive = "telescope"
-g.dashboard_custom_header = {
+
+db.custom_header = {
 "⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣶⣶⣿⣿⣿⣿⣿⣿⣶⣶⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
 "⠀⠀⠀⠀⠀⠀⢀⣴⣾⣿⠿⠟⠋⠉⠉⠀⠀⠀⠀⠉⠉⠙⠛⠿⣿⣷⣦⡀⠀⠀⠀⠀⠀⠀",
 "⠀⠀⠀⠀⣠⣾⣿⡿⠋⠁⠀⠀⣀⣠⣤⣤⣤⣤⣤⣤⣄⣀⠀⠀⠀⠙⠻⣿⣷⣄⠀⠀⠀⠀",
@@ -24,14 +23,15 @@ g.dashboard_custom_header = {
 "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠿⠿⣿⣿⣿⣿⣿⣿⠿⠿⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀",
 }
 
-g.dashboard_custom_section = {
-   a = { description = { "New File                             洛" }, command = "DashboardNewFile" },
-   b = { description = { "Recents                              " }, command = "Telescope oldfiles" },
-   c = { description = { "Find File                            " }, command = "Telescope find_files" },
-   d = { description = { "Find Word                            " }, command = "Telescope live_grep" },
-   e = { description = { "Bookmarks                            " }, command = "Telescope marks" },
-}
-
-g.dashboard_custom_footer = {
+db.custom_footer = {
    "Black Mesa Mach Project",
 }
+
+db.custom_center = {
+   { icon = '洛', desc = "New File                            ", action = "DashboardNewFile" },
+   { icon = ' ', desc = "Recents                              ", action = "Telescope oldfiles" },
+   { icon = ' ', desc = "Find File                            ", action = "Telescope find_files" },
+   { icon = ' ', desc = "Find Word                            ", action = "Telescope live_grep" },
+   { icon = ' ', desc = "Bookmarks                            ", action = "Telescope marks" },
+}
+

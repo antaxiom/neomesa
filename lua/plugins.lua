@@ -7,7 +7,7 @@ return require('packer').startup(function()
   use 'neovim/nvim-lspconfig'		-- nvim lsp implementaion plugin
   use 'kabouzeid/nvim-lspinstall'		-- utility for installing lsp servers
   use 'hrsh7th/nvim-compe'		-- autocompletion support
-  use 'onsails/lspkind-nvim'		-- lsp gui suggestions
+ -- use 'onsails/lspkind-nvim'		-- lsp gui suggestions
   use 'hrsh7th/vim-vsnip' -- snippets
   use 'hrsh7th/vim-vsnip-integ' -- snippet integrations
 
@@ -27,7 +27,13 @@ return require('packer').startup(function()
   use {'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons'}
   use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
   use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
-  use 'glepnir/dashboard-nvim'
+  use {
+    "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("indent_blankline").setup { filetype_exclude = { "dashboard" }
+      }
+    end
+  }
 
   -- cosmetic, but useful
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
@@ -37,6 +43,7 @@ return require('packer').startup(function()
   use 'lervag/vimtex'
   use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'} -- needs yarn installed
   use 'elkowar/yuck.vim'
+  use 'simrat39/rust-tools.nvim'
 
   -- my colorscheme
   use 'rktjmp/lush.nvim' -- framework for making and testing the theme
